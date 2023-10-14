@@ -2,7 +2,7 @@ class CreateContainers < ActiveRecord::Migration[7.0]
   def change
     create_table :containers do |t|
       t.text :tag, null: false, unique: true
-      t.references :user, null: false, foreign_key: true
+      t.belongs_to :user
 
       t.timestamps
     end

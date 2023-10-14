@@ -22,13 +22,8 @@
   </div>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :task_id, style: "display: block" %>
-    <%= form.text_field :task_id %>
+    <%= form.label :container_id, style: "display: block" %>
+    <%= form.collection_select :container_id, current_user.containers, :id, :tag %>
   </div>
 
   <div>

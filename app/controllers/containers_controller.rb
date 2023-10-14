@@ -1,25 +1,20 @@
 class ContainersController < ApplicationController
   before_action :set_container, only: %i[show edit update destroy]
 
-  # GET /containers or /containers.json
   def index
-    @containers = Container.all
+    @containers = current_user.containers.all
   end
 
-  # GET /containers/1 or /containers/1.json
   def show; end
 
-  # GET /containers/new
   def new
-    @container = Container.new
+    @container = current_user.containers.new
   end
 
-  # GET /containers/1/edit
   def edit; end
 
-  # POST /containers or /containers.json
   def create
-    @container = Container.new(container_params)
+    @container = current_user.containers.new(container_params)
 
     respond_to do |format|
       if @container.save
@@ -32,7 +27,6 @@ class ContainersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /containers/1 or /containers/1.json
   def update
     respond_to do |format|
       if @container.update(container_params)
@@ -45,7 +39,6 @@ class ContainersController < ApplicationController
     end
   end
 
-  # DELETE /containers/1 or /containers/1.json
   def destroy
     @container.destroy
 
@@ -57,13 +50,11 @@ class ContainersController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_container
     @container = Container.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def container_params
-    params.require(:container).permit(:tag, :user_id)
+    params.require(:container).permit(:tag)
   end
 end
