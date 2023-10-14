@@ -23,10 +23,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_14_062641) do
     t.text "title", null: false
     t.text "description"
     t.integer "user_id", null: false
-    t.integer "task_id", null: false
+    t.integer "container_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["task_id"], name: "index_tasks_on_task_id"
+    t.index ["container_id"], name: "index_tasks_on_container_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -43,6 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_14_062641) do
   end
 
   add_foreign_key "containers", "users"
-  add_foreign_key "tasks", "tasks"
+  add_foreign_key "tasks", "containers"
   add_foreign_key "tasks", "users"
 end
