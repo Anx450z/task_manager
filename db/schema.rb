@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_15_055743) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["tag", "user_id"], name: "index_containers_on_tag_and_user_id", unique: true
     t.index ["user_id"], name: "index_containers_on_user_id"
   end
 

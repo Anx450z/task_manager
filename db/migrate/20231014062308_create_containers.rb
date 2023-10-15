@@ -6,5 +6,6 @@ class CreateContainers < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_index :containers, [:tag, :user_id], unique: true
   end
 end

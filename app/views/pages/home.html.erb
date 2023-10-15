@@ -9,14 +9,20 @@
   <% @containers.each do |container| %>
     <div class="container-card">
       <h2><%= container.tag %></h2>
-      <% container.tasks.each do |task| %>
-        <div class="task-card">
-          <%= task.title %><br>
-          <%= task.description %><br>
-          <%= task.status %><br>
-          <%= link_to 'Edit Task', edit_task_path(task), class: 'button' %>
+
+      <% container.tasks.order(:status).group_by(&:status).each do |status, tasks| %>
+        <div class="status-card">
+          <%= status %>
+          <% tasks.each do |task| %>
+            <div class="task-card">
+              <b><%= task.title %></b><br>
+              <%= task.description %><br>
+              <%= link_to 'Edit Task', edit_task_path(task), class: 'button' %>
+            </div>
+          <% end %>
         </div>
       <% end %>
+
     </div>
   <% end %>
 </div>

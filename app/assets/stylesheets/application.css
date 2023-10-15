@@ -4,15 +4,17 @@
   font-family: 'Poppins', sans-serif;
 }
 
- .button {
+body {
+  background-color: #f5f5f5;
+}
+
+.button {
   display: inline-block;
-  padding: 10px 15px;
+  padding: 10px 10px;
   font-size: 14px;
   text-align: center;
   text-decoration: none;
-  border: 1px solid #ccc;
-  background-color: #f8f8f8;
-  color: #333;
+  color: #424242;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
@@ -20,7 +22,7 @@
 
 .delete-button {
   display: inline-block;
-  padding: 10px 15px;
+  padding: 10px 10px;
   font-size: 14px;
   text-align: center;
   text-decoration: none;
@@ -37,7 +39,7 @@
 }
 
 .button:hover {
-  background-color: #ddd;
+  color: #006aff;
 }
 
 /* Tasks */
@@ -45,28 +47,32 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  padding: 20px;
+  margin: 10px;
+  padding: 10px;
   width: 300px;
-  border: 1px solid rgba(0, 0, 0, 0.1); /* add transparent border */
+  border: 1px solid rgba(0, 0, 0, 0.1); 
   transition: border-color 0.3s ease-in-out;
+  text-align: left; 
 }
 
 .task-card:hover {
   border-color: #007BFF; /* change border color on hover */
   box-shadow: 0 0 5px rgba(43, 146, 255, 0.586);
+  color:rgb(0, 0, 0)
 }
 
 /* Containers */
 .container-card {
   background-color: #fff;
   border-radius: 8px;
-  margin: 20px;
-  padding: 20px;
+  margin: 10px;
+  padding: 5px;
   max-width: 400px;
   text-align: center;
   text-decoration: none;
-  border: 1px solid #ccc;
+  color: #4f4f4f;
+  border: 1px solid #e4e4e4;
+  border-top: 10px solid #ccc; /* changed this line */
 }
 
 .container-wrapper {
@@ -174,4 +180,58 @@
 
 .links a:hover {
   text-decoration: underline;
+}
+
+/* Status */
+.status-card {
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 5px;
+  max-width: 400px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #e7e7e7;
+}
+
+/* Edit page */
+.task-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.error-messages {
+  color: #e74c3c;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+  background-color: #2980b9;
 }

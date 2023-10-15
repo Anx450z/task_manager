@@ -1,6 +1,6 @@
-<%= form_with(model: task) do |form| %>
+<%= form_with(model: task, html: { class: 'task-form' }) do |form| %>
   <% if task.errors.any? %>
-    <div style="color: red">
+    <div class="error-messages">
       <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
       <ul>
@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_area :title %>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_area :title, class: 'input' %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: 'input' %>
   </div>
 
-  <div>
-    <%= form.label :container_id, style: "display: block" %>
-    <%= form.collection_select :container_id, current_user.containers, :id, :tag %>
+  <div class="form-group">
+    <%= form.label :container_id %>
+    <%= form.collection_select :container_id, current_user.containers, :id, :tag, {}, { class: 'input' } %>
   </div>
 
-   <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.select :status, options_for_select(Task.statuses.keys) %>
+   <div class="form-group">
+    <%= form.label :status %>
+    <%= form.select :status, options_for_select(Task.statuses.keys), {}, { class: 'input' } %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit 'Submit', class: 'submit-button' %>
   </div>
 <% end %>
