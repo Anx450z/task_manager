@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_14_062641) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_15_055743) do
   create_table "containers", force: :cascade do |t|
     t.text "tag", null: false
     t.integer "user_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_14_062641) do
     t.integer "container_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
     t.index ["container_id"], name: "index_tasks_on_container_id"
   end
 
