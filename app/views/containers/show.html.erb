@@ -3,8 +3,8 @@
 <%= render @container %>
 
 <div>
-  <%= link_to "Edit this container", edit_container_path(@container) %> |
-  <%= link_to "Back to containers", containers_path %>
+  <%= link_to "Edit this container", edit_container_path(@container), class: 'button' %> |
+  <%= link_to "Back to containers", containers_path, class: 'button' %>
 
-  <%= button_to "Destroy this container", @container, method: :delete %>
+  <%= button_to "Destroy this container", @container, method: :delete, class: 'delete-button' %>
 </div>

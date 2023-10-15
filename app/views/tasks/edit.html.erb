@@ -5,6 +5,7 @@
 <br>
 
 <div>
-  <%= link_to "Show this task", @task %> |
-  <%= link_to "Back to tasks", tasks_path %>
+  <%= link_to "Show this task", @task, class: 'button' %>
+  <%= link_to "Back to tasks", tasks_path, class: 'button'%>
+  <%= link_to "Back to Home", root_path, class: 'button' %>
 </div>

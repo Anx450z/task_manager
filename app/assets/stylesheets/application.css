@@ -1,15 +1,125 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+ .button {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  color: #333;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.delete-button {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  background-color: #ff3535;
+  color: #ffffff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.delete-button:hover {
+  background-color: #c80000;
+}
+
+.button:hover {
+  background-color: #ddd;
+}
+
+/* Tasks */
+.task-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  padding: 20px;
+  width: 300px;
+  border: 1px solid transparent; /* add transparent border */
+  transition: border-color 0.3s ease-in-out;
+}
+
+.task-card:hover {
+  border-color: #007BFF; /* change border color on hover */
+  box-shadow: 0 0 15px rgba(43, 146, 255, 0.586);
+}
+
+/* Containers */
+.container-card {
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 20px;
+  padding: 20px;
+  max-width: 400px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #ccc;
+}
+
+.container-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #fdfdfd;
+  color: rgb(0, 0, 0);
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-email {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.button, .sign-out-button {
+  padding: 10px 20px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button {
+  border: none;
+  background-color: #3498db;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.button:hover {
+  background-color: #2980b9;
+}
+
+.sign-out-button {
+  border: none;
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.sign-out-button:hover {
+  background-color: #c0392b;
+}

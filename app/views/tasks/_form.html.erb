@@ -26,6 +26,11 @@
     <%= form.collection_select :container_id, current_user.containers, :id, :tag %>
   </div>
 
+   <div>
+    <%= form.label :status, style: "display: block" %>
+    <%= form.select :status, options_for_select(Task.statuses.keys) %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>
