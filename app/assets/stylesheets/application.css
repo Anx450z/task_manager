@@ -44,17 +44,17 @@
 .task-card {
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, 0.1);
   margin: 20px;
   padding: 20px;
   width: 300px;
-  border: 1px solid transparent; /* add transparent border */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* add transparent border */
   transition: border-color 0.3s ease-in-out;
 }
 
 .task-card:hover {
   border-color: #007BFF; /* change border color on hover */
-  box-shadow: 0 0 15px rgba(43, 146, 255, 0.586);
+  box-shadow: 0 0 5px rgba(43, 146, 255, 0.586);
 }
 
 /* Containers */
@@ -86,6 +86,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.2); /* added this line */
 }
 
 .navbar-email {
@@ -103,17 +104,6 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.button {
-  border: none;
-  background-color: #3498db;
-  color: #fff;
-  margin-right: 10px;
-}
-
-.button:hover {
-  background-color: #2980b9;
-}
-
 .sign-out-button {
   border: none;
   background-color: #e74c3c;
@@ -122,4 +112,66 @@
 
 .sign-out-button:hover {
   background-color: #c0392b;
+}
+
+/* Devise */
+.container {
+  display: flex;
+  flex-direction: column; /* added this line */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.form-container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form .field {
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 380px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+  background-color: #2980b9;
+}
+
+.links {
+  margin-top: 20px;
+}
+
+.links a {
+  display: block;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
 }
