@@ -51,7 +51,7 @@ body {
   padding: 10px;
   width: 300px;
   border: 1px solid rgba(0, 0, 0, 0.1); 
-  transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.2s ease-in-out;
   text-align: left; 
 }
 
@@ -304,3 +304,41 @@ body {
 .floating-button:hover {
   background-color: #0056b3;
 }
+
+
+/* Context menu */
+.context-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 0px;
+  z-index: 999;
+  border-radius: 10px;
+  width: 200px;
+}
+
+.context-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.context-menu li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.context-menu li:hover {
+  background-color: #f0f0f0;
+}
+
+.status-option {
+  color: #007bff;
+}
+
+hr {
+  border: 1px solid #91919133;
+}
+
