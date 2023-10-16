@@ -1,0 +1,8 @@
+<!-- app/views/shared/_navbar.html.erb -->
+<div class="navbar">
+  <div class="navbar-email"><%= current_user.email %></div>
+  <% if show_home_page %>
+    <%= link_to 'Home', root_path, class: 'button' %>
+  <% end %>
+  <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'sign-out-button' %>
+</div>

@@ -65,7 +65,7 @@ body {
 .container-card {
   background-color: #fff;
   border-radius: 8px;
-  margin: 10px;
+  margin: 5px;
   padding: 5px;
   max-width: 400px;
   text-align: center;
@@ -182,18 +182,6 @@ body {
   text-decoration: underline;
 }
 
-/* Status */
-.status-card {
-  background-color: #fff;
-  border-radius: 8px;
-  margin: 5px;
-  padding: 5px;
-  max-width: 400px;
-  text-align: center;
-  text-decoration: none;
-  border: 1px solid #e7e7e7;
-}
-
 /* Edit page */
 .task-form {
   max-width: 600px;
@@ -234,4 +222,85 @@ body {
 
 .submit-button:hover {
   background-color: #2980b9;
+}
+
+/* status caret */
+.status-card {
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 5px;
+  padding: 5px;
+  max-width: 400px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #e7e7e7;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.status-card[data-expanded="false"] .tasks-container {
+  max-height: 0;
+}
+
+.caret {
+  float: right;
+  transition: transform 0.2s ease-out;
+}
+
+.status-card[data-expanded="false"] .caret {
+  transform: rotate(-90deg);
+}
+
+.tasks-container {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+}
+
+.status-card[data-expanded="true"] .tasks-container {
+  max-height: 1000px; /* Adjust to your content's needs */
+}
+/* tasks */
+.task-count {
+  float: right;
+  margin-right: 10px;
+  transition: opacity 0.2s ease-out;
+}
+
+.status-card[data-expanded="true"] .task-count {
+  opacity: 0;
+}
+
+.status-card[data-expanded="false"] .task-count {
+  opacity: 1;
+}
+
+.status-card-header {
+  cursor: pointer;
+}
+
+/* Floating button */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999; /* Make sure it's on top of other elements */
+}
+
+.floating-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.floating-button:hover {
+  background-color: #0056b3;
 }
