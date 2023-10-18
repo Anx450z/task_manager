@@ -1,6 +1,28 @@
-<div id="<%= dom_id container %>">
-  <p>
-    <strong>Tag:</strong>
-    <%= container.tag %>
-  </p>
+<div id="<%= dom_id container %>" class="container-card" data-container-id="<%= container.id %>" oncontextmenu="showCombinedContextMenu(event)">
+  <div >
+    <b><%= container.tag %></b>
+    <span><%= link_to 'Edit', edit_container_path(container), class: 'button' %></span>
+    <span> <%= link_to 'New Task', new_task_path, class: 'button' %>
+  </div>
+  <% container.tasks.order(:status).group_by(&:status).each do |status, tasks| %>
+    <div class="status-card" id="status-card-<%= container %>-<%= status %>" data-expanded="true">
+      <div class="status-card-header" onclick="toggleStatusCard('<%= container %>-<%= status %>')">
+        <%= status %>
+        <span class="caret">&#9660;</span>
+        <span class="task-count"><%= tasks.count %> Tasks</span>
+      </div>
+      <div class="tasks-container">
+        <% tasks.each do |task| %>
+          <%= render task %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div id="context-menu-container-<%= container.id %>" class="hidden">
+  <ul>
+    <li id="new-task-<%= container.id %>" class="status-option"><span>Add new task</span></li>
+    <li id="edit-container-<%= container.id %>"><span>Edit container</span></li>
+    <li id="delete-container-<%= container.id %>"><span>Delete container</span></li>
+  </ul>
 </div>

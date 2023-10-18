@@ -1,22 +1,15 @@
-<div id="<%= dom_id task %>" class="task-card">
-  <p>
-    <strong>Title:</strong>
-    <%= task.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= task.description %>
-  </p>
-
-  <p>
-    <strong>Container:</strong>
-    <%= task.container.tag %>
-  </p>
-
-    <p>
-    <strong>Status:</strong>
-    <%= task.status %>
-  </p>
-
+<%= javascript_include_tag 'task' %>
+<div class="task-card" data-task-id="<%= task.id %>" oncontextmenu="showCombinedContextMenu(event)">
+  <b><%= task.title %></b><br>
+  <%= task.description %><br>
+</div>
+<div id="context-menu-task-<%= task.id %>" class="hidden">
+  <ul>
+    <% Task.statuses.keys.excluding(task.status).each do |status_option| %>
+      <li class="status-option<%= ' current-status' if status_option == task.status %>">Mark <%= status_option %></li>
+    <% end %>
+    <li id="edit-task-<%= task.id %>"><span>Edit Task</span></li>
+    <li id="delete-task-<%= task.id %>"><span>Delete Task</span></li>
+    <hr>
+  </ul>
 </div>

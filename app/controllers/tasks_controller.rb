@@ -31,6 +31,7 @@ class TasksController < ApplicationController
       if @task.update(task_params)
         format.html { redirect_to task_url(@task), notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @task }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(dom_id(@task, :status), partial: 'tasks/status', locals: { task: @task }) }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @task.errors, status: :unprocessable_entity }

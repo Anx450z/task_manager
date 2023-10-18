@@ -48,7 +48,7 @@ body {
   border-radius: 8px;
   box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, 0.1);
   margin: 10px;
-  padding: 10px;
+  padding: 20px;
   width: 300px;
   border: 1px solid rgba(0, 0, 0, 0.1); 
   transition: border-color 0.2s ease-in-out;
@@ -317,6 +317,8 @@ body {
   z-index: 999;
   border-radius: 10px;
   width: 200px;
+  text-align: center;
+  color: #424242;
 }
 
 .context-menu ul {
@@ -326,19 +328,23 @@ body {
 }
 
 .context-menu li {
-  padding: 5px;
+  padding: 10px;
   cursor: pointer;
 }
 
 .context-menu li:hover {
   background-color: #f0f0f0;
+  color: black;
 }
 
 .status-option {
   color: #007bff;
 }
 
+.hidden {
+  display: none;
+}
+
 hr {
   border: 1px solid #91919133;
 }
-
