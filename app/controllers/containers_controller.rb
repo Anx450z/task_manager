@@ -55,6 +55,6 @@ class ContainersController < ApplicationController
   end
 
   def container_params
-    params.require(:container).permit(:tag)
+    params.require(:container).permit(:tag, :color)
   end
 end

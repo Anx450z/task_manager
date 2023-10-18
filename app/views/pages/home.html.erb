@@ -1,5 +1,4 @@
 <%= render 'shared/navbar', show_home_page: false %>
-<%= javascript_include_tag 'contextMenu' %>
 <div class="container-wrapper">
   <% current_user.containers.group_by(&:tag).each do |tag, containers| %>
       <% containers.each do | container | %>

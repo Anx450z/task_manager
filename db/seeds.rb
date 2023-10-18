@@ -16,16 +16,17 @@ ActiveRecord::Base.transaction do
 
   # Create Containers
   User.all.each do |user|
-    10.times do
+    6.times do
       Container.create!(
-        tag: Faker::Lorem.word,
-        user_id: user.id
+        tag: Faker::Lorem.word + rand(11..99).to_s,
+        user_id: user.id,
+        color: rand(0..8)
       )
     end
   end
   # Create Tasks
   Container.all.each do |container|
-    5.times do
+    10.times do
       Task.create!(
         title: Faker::Lorem.sentence,
         description: Faker::Lorem.paragraph,

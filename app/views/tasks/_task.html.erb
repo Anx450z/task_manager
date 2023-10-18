@@ -1,15 +1,15 @@
 <%= javascript_include_tag 'task' %>
 <div class="task-card" data-task-id="<%= task.id %>" oncontextmenu="showCombinedContextMenu(event)">
   <b><%= task.title %></b><br>
-  <%= task.description %><br>
+  <p><%= task.description %></p><br>
 </div>
 <div id="context-menu-task-<%= task.id %>" class="hidden">
   <ul>
     <% Task.statuses.keys.excluding(task.status).each do |status_option| %>
-      <li class="status-option<%= ' current-status' if status_option == task.status %>">Mark <%= status_option %></li>
+      <li>Mark <%= status_option %></li>
     <% end %>
-    <li id="edit-task-<%= task.id %>"><span>Edit Task</span></li>
-    <li id="delete-task-<%= task.id %>"><span>Delete Task</span></li>
+    <li id="edit-task-<%= task.id %>" class="status-option"><span>Edit Task</span></li>
+    <li id="delete-task-<%= task.id %>" class="context-menu-delete"><span>Delete Task</span></li>
     <hr>
   </ul>
 </div>

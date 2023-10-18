@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_15_055743) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_18_201715) do
   create_table "containers", force: :cascade do |t|
     t.text "tag", null: false
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "color", default: 0
     t.index ["tag", "user_id"], name: "index_containers_on_tag_and_user_id", unique: true
     t.index ["user_id"], name: "index_containers_on_user_id"
   end
