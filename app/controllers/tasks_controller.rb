@@ -17,8 +17,8 @@ class TasksController < ApplicationController
     @task = current_user.tasks.new(task_params)
     respond_to do |format|
       if @task.save
-        format.html { redirect_to task_url(@task), notice: 'Task was successfully created.' }
-        format.json { render :show, status: :created, location: @task }
+        format.html { redirect_to root_path, notice: 'Task was successfully created.' }
+        format.json { render :show, status: :created, location: root_path }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -27,11 +27,16 @@ class TasksController < ApplicationController
   end
 
   def update
+    # if @task.update(task_params)
+    #   render turbo_stream: turbo_stream.replace(@task, partial: 'tasks/task', locals: { task: @task })
+    # else
+    #   format.html { render :edit, status: :unprocessable_entity }
+    #   format.json { render json: @task.errors, status: :unprocessable_entity }
+    # end
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to task_url(@task), notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
-        format.turbo_stream { render turbo_stream: turbo_stream.replace(dom_id(@task, :status), partial: 'tasks/status', locals: { task: @task }) }
+        format.html { redirect_to root_path, notice: 'Task was successfully updated.' }
+        format.json { render :show, status: :ok, location: root_path }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -43,7 +48,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -1,6 +1,6 @@
 function showCombinedContextMenu(e) {
   e.preventDefault();
-
+  e.stopPropagation();
   // Get the task and container elements
   var taskElement = e.target.closest('.task-card');
   var containerElement = e.target.closest('.container-card');

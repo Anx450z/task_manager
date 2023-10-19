@@ -1,4 +1,9 @@
 <%= render 'shared/navbar', show_home_page: false %>
+<% if notice.present? %>
+  <div class="notice">
+    <p><%= notice %></p>
+  </div>
+<% end %>
 <div class="container-wrapper">
   <% current_user.containers.group_by(&:tag).each do |tag, containers| %>
       <% containers.each do | container | %>

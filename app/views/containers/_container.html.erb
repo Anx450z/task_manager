@@ -27,7 +27,7 @@
 <div id="context-menu-container-<%= container.id %>" class="hidden">
   <ul>
     <li id="new-task-<%= container.id %>"><span>Add new task</span></li>
-    <li id="edit-container-<%= container.id %>" class="status-option"><span>Edit container</span></li>
-    <li id="delete-container-<%= container.id %>" class="context-menu-delete"><span>Delete container</span></li>
+    <li><%= link_to "Edit container", edit_container_path(container), class: 'status-option'%></li>
+    <li><%= button_to "Delete container", container, method: :delete, class: 'context-menu-delete' %></li>
   </ul>
 </div>
