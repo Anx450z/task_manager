@@ -1,16 +1,18 @@
 <%= javascript_include_tag 'task' %>
-<%= link_to task_path(task), class: 'task-card-link' do %>
-  <div class="task-card" id="<%= dom_id(task) %>" data-task-id="<%= task.id %>" oncontextmenu="showCombinedContextMenu(event)">
-    <b><%= task.title %></b><br>
-    <p><%= task.description %></p><br>
-  </div>
-<% end %>
+
+    <%= link_to task_path(task), data: { turbo_frame: "modal" }, class: 'task-card-link' do %>
+      <div class="task-card" id="<%= dom_id(task) %>" data-task-id="<%= task.id %>" oncontextmenu="showCombinedContextMenu(event)">
+        <b><%= task.title %></b><br>
+        <p><%= task.description %></p><br>
+      </div>
+    <% end %>
+
 <div id="context-menu-task-<%= task.id %>" class="hidden">
   <ul>
     <% Task.statuses.keys.excluding(task.status).each do |status_option| %>
       <li><%= button_to "Mark #{status_option}", task_path(task, task: { status: status_option }), method: :patch, class: 'status-option' %></li>
     <% end %>
-    <li><%= link_to "Edit task", edit_task_path(task), class: 'status-option'%></li>
+    <li><%= link_to "Edit task", edit_task_path(task), data:{turbo_frame: "modal"}, class: 'status-option'%></li>
     <li><%= button_to "Delete task", task, method: :delete, class: 'context-menu-delete' %></li>
     <hr>
   </ul>

@@ -4,7 +4,7 @@
     <b><%= container.tag %></b>
     <div>
       <span><%= link_to 'Edit', edit_container_path(container), data: { turbo_frame: "modal" }, class: 'button' %></span>
-      <span> <%= link_to 'New Task', new_task_path, class: 'button' %>
+      <span> <%= link_to 'New Task', new_task_path, data: { turbo_frame: "modal" }, class: 'button' %>
     </div>
   </div>
   <% container.tasks.order(:status).group_by(&:status).each do |status, tasks| %>
@@ -27,7 +27,7 @@
 <div id="context-menu-container-<%= container.id %>" class="hidden">
   <ul>
     <li id="new-task-<%= container.id %>"><span>Add new task</span></li>
-    <li><%= link_to "Edit container", edit_container_path(container), class: 'status-option'%></li>
+    <li><%= link_to "Edit container", edit_container_path(container), data: { turbo_frame: "modal" }, class: 'status-option'%></li>
     <li><%= button_to "Delete container", container, method: :delete, class: 'context-menu-delete' %></li>
   </ul>
 </div>
