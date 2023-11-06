@@ -8,14 +8,14 @@
     </div>
   </div>
   <% container.tasks.order(:status).group_by(&:status).each do |status, tasks| %>
-      <div class="status-card" id="status-card-<%= container %>-<%= status %>" data-expanded="true">
-        <div class="status-card-header" onclick="toggleStatusCard('<%= container %>-<%= status %>')">
+      <div class="status-card" id="status-card-<%= container.id %>-<%= status %>" data-expanded="true">
+        <div class="status-card-header" onclick="toggleStatusCard('<%= container.id %>-<%= status %>')">
           <span><b><%= status %></b> </span>
           <span class="caret">&gt;</span>
           <span class="task-count"><%= tasks.count %> Tasks</span>
         </div>
       <div class="tasks-container">
-        <div class="tasks-status-wrapper">
+        <div class="tasks-status-wrapper" id="<%= container.id %>-<%= status %>">
           <% tasks.each do |task| %>
             <%= render task %>
           <% end %>

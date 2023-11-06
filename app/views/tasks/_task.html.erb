@@ -1,7 +1,7 @@
 <%= javascript_include_tag 'task' %>
 
     <%= link_to task_path(task), data: { turbo_frame: "modal" }, class: 'task-card-link' do %>
-      <div class="task-card" id="<%= dom_id(task) %>" data-task-id="<%= task.id %>" oncontextmenu="showCombinedContextMenu(event)">
+      <div class="task-card" id="<%= dom_id task %>" data-task-id="<%= task.id %>" oncontextmenu="showCombinedContextMenu(event)">
         <b><%= task.title %></b><br>
         <p><%= task.description %></p><br>
       </div>

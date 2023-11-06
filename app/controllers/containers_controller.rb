@@ -49,6 +49,7 @@ class ContainersController < ApplicationController
     @container.destroy
 
     respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.remove(@container) }
       format.html { redirect_to containers_url, notice: 'Container was successfully destroyed.' }
       format.json { head :no_content }
     end
