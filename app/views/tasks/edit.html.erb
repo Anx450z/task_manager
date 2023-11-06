@@ -1,13 +1,9 @@
 <h1>Editing task</h1>
 <%= turbo_frame_tag "modal" do %>
   <div class="modal">
-
     <%= render "form", task: @task %>
-
     <br>
-
     <div>
-      <%= link_to "Show this task", @task, class: 'button' %>
       <%= link_to "Cancel", '#', data:{
         controller: "modals",
         action: "modals#close"

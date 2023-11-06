@@ -11,4 +11,12 @@ export default class extends Controller {
     modal.removeAttribute("src");
     modal.removeAttribute("completed");
   }
+  // hide(e){
+  //   this.element.remove()
+  // }
+  // SubmitEnd(e){
+  //   if(e.detail.success){
+  //     this.hide()
+  //   }
+  // }
 }

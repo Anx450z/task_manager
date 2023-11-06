@@ -1,3 +1,5 @@
+include ActionView::RecordIdentifier
+
 class ContainersController < ApplicationController
   before_action :set_container, only: %i[show edit update destroy]
 
@@ -19,7 +21,8 @@ class ContainersController < ApplicationController
     respond_to do |format|
       if @container.save
         format.turbo_stream do
-          render turbo_stream: turbo_stream.prepend("containers", partial: "containers/container", locals: { container: @container })
+          render turbo_stream: turbo_stream.prepend("containers", partial: "containers/container",
+                                                                  locals: { container: @container })
         end
         format.html { redirect_to container_url(@container), notice: 'Container was successfully created.' }
         format.json { render :show, status: :created, location: @container }
@@ -34,7 +37,8 @@ class ContainersController < ApplicationController
     respond_to do |format|
       if @container.update(container_params)
         format.turbo_stream do
-          render turbo_stream: turbo_stream.prepend("containers", partial: "containers/container", locals: { container: @container })
+          render turbo_stream: turbo_stream.replace(dom_id(@container).to_s, partial: "containers/container",
+                                                                             locals: { container: @container })
         end
         format.html { redirect_to container_url(@container), notice: 'Container was successfully updated.' }
         format.json { render :show, status: :ok, location: @container }
