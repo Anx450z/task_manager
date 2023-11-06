@@ -4,7 +4,7 @@
     <p><%= notice %></p>
   </div>
 <% end %>
-<div class="container-wrapper">
+<div class="container-wrapper" id="containers">
   <% current_user.containers.group_by(&:tag).each do |tag, containers| %>
       <% containers.each do | container | %>
           <%= render container %>
