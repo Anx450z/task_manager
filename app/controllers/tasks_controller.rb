@@ -36,7 +36,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.update(task_params)
         format.turbo_stream do
-          render turbo_stream: turbo_stream.replace("#{dom_id @task}", partial: "tasks/task", locals: { task: @task })
+          render turbo_stream: turbo_stream.replace(@task, partial: "tasks/task", locals: { task: @task })
         end
         format.html { redirect_to root_path, notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: root_path }

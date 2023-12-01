@@ -37,7 +37,7 @@ class ContainersController < ApplicationController
     respond_to do |format|
       if @container.update(container_params)
         format.turbo_stream do
-          render turbo_stream: turbo_stream.replace(dom_id(@container).to_s, partial: "containers/container",
+          render turbo_stream: turbo_stream.replace(@container, partial: "containers/container",
                                                                              locals: { container: @container })
         end
         format.html { redirect_to container_url(@container), notice: 'Container was successfully updated.' }
