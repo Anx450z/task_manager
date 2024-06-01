@@ -7,10 +7,10 @@
 #   Character.create(name: "Luke", movie: movies.first)
 ActiveRecord::Base.transaction do
   # Create Users
-  3.times do
+  1.times do
     User.create!(
-      email: Faker::Internet.email,
-      password: 'test123'
+      email: 'anx450z@gmail.com',
+      password: 'password'
     )
   end
 

@@ -4,7 +4,7 @@
     <b><%= container.tag %></b>
     <div>
       <span><%= link_to 'Edit', edit_container_path(container), data: { turbo_frame: "modal" }, class: 'button' %></span>
-      <span> <%= link_to 'New Task', new_task_path, data: { turbo_frame: "modal" }, class: 'button' %>
+      <span> <%= link_to 'New Task', new_task_path, data: { turbo_frame: "modal" }, class: 'button' %> </span>
     </div>
   </div>
   <% container.tasks.order(:status).group_by(&:status).each do |status, tasks| %>
